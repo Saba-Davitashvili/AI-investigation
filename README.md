@@ -79,8 +79,6 @@ From the project directory:
 .\.venv\Scripts\python.exe -m uvicorn api:app
 ```
 
-Open http://127.0.0.1:8000. Press Ctrl+F5 if the old interface is cached. No reindexing is required solely for this source cleanup when the existing corpus files and vectors are valid.
-
 ## Fresh local installation
 
 Python 3.13 was used by the original Windows project. Offline closeout tests ran on Python 3.12 with small dependencies. The complete Linux/ARM container build is not verified in this package.
