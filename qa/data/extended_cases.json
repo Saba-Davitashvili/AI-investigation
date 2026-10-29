@@ -1,0 +1,210 @@
+{
+  "description": "Synthetic fixtures and 12 additional evaluation cases. Not claimed executed against a live LLM.",
+  "documents": {
+    "qa_project_42786.md": "Synthetic evaluation fixture.\n# Project ORION-QA-42786\nClient: Cedar Labs.\nApproved budget: 12000 GEL.\nThe approval signer and insurance policy number are not recorded.\n",
+    "qa_change_84261.txt": "Synthetic evaluation fixture.\nChange ID: CHG-84261.\nProject: ORION-QA-42786.\nService changed: Payment Gateway.\nRequest timeout changed from 3000 milliseconds to 300 milliseconds.\nDeployment date: 24 October 2026.\n",
+    "qa_incident_84261.txt": "Synthetic evaluation fixture.\nIncident ID: INC-84261.\nProject: ORION-QA-42786.\nThe investigation confirmed change CHG-84261 caused payment requests to time out.\nAffected downstream services: Checkout API and Billing Worker.\nThe rollback timestamp is not recorded.\n",
+    "qa_timeout_a_96147.txt": "Synthetic evaluation fixture.\nChange ID: CONFLICT-TIMEOUT-96147.\nFinal request timeout after deployment on 24 October 2026: 600 milliseconds.\nThis record gives no precedence or supersession information.\n",
+    "qa_timeout_b_96147.txt": "Synthetic evaluation fixture.\nChange ID: CONFLICT-TIMEOUT-96147.\nFinal request timeout after deployment on 24 October 2026: 900 milliseconds.\nThis record gives no precedence or supersession information.\n",
+    "qa_budget_a_58263.txt": "Synthetic evaluation fixture.\nProject ID: CONFLICT-BUDGET-58263.\nFinal approved budget as of 24 October 2026: 16000 GEL.\nThis record gives no precedence or supersession information.\n",
+    "qa_budget_b_58263.txt": "Synthetic evaluation fixture.\nProject ID: CONFLICT-BUDGET-58263.\nFinal approved budget as of 24 October 2026: 24000 GEL.\nThis record gives no precedence or supersession information.\n",
+    "qa_date_a_19375.txt": "Synthetic evaluation fixture.\nRelease ID: CONFLICT-DATE-19375.\nFinal deployment date: 10 October 2026.\nThis record gives no precedence or supersession information.\n",
+    "qa_date_b_19375.txt": "Synthetic evaluation fixture.\nRelease ID: CONFLICT-DATE-19375.\nFinal deployment date: 11 October 2026.\nThis record gives no precedence or supersession information.\n"
+  },
+  "cases": [
+    {
+      "id": "SIMPLE-01",
+      "category": "simple",
+      "question": "What is the approved budget for project ORION-QA-42786? Cite its source.",
+      "expected_status": "answered",
+      "expected_fact_groups": [
+        [
+          "12000"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_project_42786.md"
+      ]
+    },
+    {
+      "id": "SIMPLE-02",
+      "category": "simple",
+      "question": "Which client owns project ORION-QA-42786? Cite its source.",
+      "expected_status": "answered",
+      "expected_fact_groups": [
+        [
+          "Cedar Labs"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_project_42786.md"
+      ]
+    },
+    {
+      "id": "SIMPLE-03",
+      "category": "simple",
+      "question": "Which downstream services were affected by INC-84261? Cite its source.",
+      "expected_status": "answered",
+      "expected_fact_groups": [
+        [
+          "Checkout API"
+        ],
+        [
+          "Billing Worker"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_incident_84261.txt"
+      ]
+    },
+    {
+      "id": "MULTI-01",
+      "category": "multi_document",
+      "question": "Which change caused INC-84261, and what old and new timeout values did that change use? Cite both the incident and change records.",
+      "expected_status": "answered",
+      "expected_fact_groups": [
+        [
+          "CHG-84261"
+        ],
+        [
+          "3000 milliseconds",
+          "3000 ms"
+        ],
+        [
+          "300 milliseconds",
+          "300 ms"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_incident_84261.txt",
+        "qa_change_84261.txt"
+      ]
+    },
+    {
+      "id": "MULTI-02",
+      "category": "multi_document",
+      "question": "Which client owns project ORION-QA-42786, and which downstream services were affected by its incident INC-84261? Cite the project and incident records.",
+      "expected_status": "answered",
+      "expected_fact_groups": [
+        [
+          "Cedar Labs"
+        ],
+        [
+          "Checkout API"
+        ],
+        [
+          "Billing Worker"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_project_42786.md",
+        "qa_incident_84261.txt"
+      ]
+    },
+    {
+      "id": "MULTI-03",
+      "category": "multi_document",
+      "question": "Which service was changed by CHG-84261, and which downstream services were affected by its linked incident? Cite the change and incident records.",
+      "expected_status": "answered",
+      "expected_fact_groups": [
+        [
+          "Payment Gateway"
+        ],
+        [
+          "Checkout API"
+        ],
+        [
+          "Billing Worker"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_change_84261.txt",
+        "qa_incident_84261.txt"
+      ]
+    },
+    {
+      "id": "ABSENT-01",
+      "category": "unanswerable",
+      "question": "Who signed the approval for project ORION-QA-42786? Use only indexed evidence.",
+      "expected_status": "insufficient",
+      "expected_fact_groups": [],
+      "expected_cited_files": []
+    },
+    {
+      "id": "ABSENT-02",
+      "category": "unanswerable",
+      "question": "What is the exact insurance policy number of project ORION-QA-42786? Use only indexed evidence.",
+      "expected_status": "insufficient",
+      "expected_fact_groups": [],
+      "expected_cited_files": []
+    },
+    {
+      "id": "ABSENT-03",
+      "category": "unanswerable",
+      "question": "What was the exact rollback timestamp of incident INC-84261? Use only indexed evidence.",
+      "expected_status": "insufficient",
+      "expected_fact_groups": [],
+      "expected_cited_files": []
+    },
+    {
+      "id": "CONFLICT-01",
+      "category": "contradictory",
+      "question": "What was the final request timeout for CONFLICT-TIMEOUT-96147 after deployment on 24 October 2026? Explain any disagreement and cite both records.",
+      "expected_status": "conflicting",
+      "expected_fact_groups": [
+        [
+          "600 milliseconds",
+          "600 ms"
+        ],
+        [
+          "900 milliseconds",
+          "900 ms"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_timeout_a_96147.txt",
+        "qa_timeout_b_96147.txt"
+      ]
+    },
+    {
+      "id": "CONFLICT-02",
+      "category": "contradictory",
+      "question": "What was the final approved budget for CONFLICT-BUDGET-58263 as of 24 October 2026? Explain any disagreement and cite both records.",
+      "expected_status": "conflicting",
+      "expected_fact_groups": [
+        [
+          "16000"
+        ],
+        [
+          "24000"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_budget_a_58263.txt",
+        "qa_budget_b_58263.txt"
+      ]
+    },
+    {
+      "id": "CONFLICT-03",
+      "category": "contradictory",
+      "question": "What was the final deployment date of CONFLICT-DATE-19375? Explain any disagreement and cite both records.",
+      "expected_status": "conflicting",
+      "expected_fact_groups": [
+        [
+          "10 October 2026",
+          "October 10 2026",
+          "2026-10-10"
+        ],
+        [
+          "11 October 2026",
+          "October 11 2026",
+          "2026-10-11"
+        ]
+      ],
+      "expected_cited_files": [
+        "qa_date_a_19375.txt",
+        "qa_date_b_19375.txt"
+      ]
+    }
+  ]
+}

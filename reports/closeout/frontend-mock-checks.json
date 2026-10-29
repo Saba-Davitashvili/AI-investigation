@@ -1,0 +1,172 @@
+{
+  "browser": "133.0.6943.0",
+  "results": [
+    {
+      "name": "Original: measure baseline and capture synthetic evidence",
+      "status": "pass"
+    },
+    {
+      "name": "New: connected initial state and real corpus counts",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive initial 375x812",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive initial 768x1024",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive initial 1280x800",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive initial 1920x1080",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive initial 320x800",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive initial 640x800",
+      "status": "pass"
+    },
+    {
+      "name": "Question examples populate editable input",
+      "status": "pass"
+    },
+    {
+      "name": "Loading and duplicate-submit protection",
+      "status": "pass"
+    },
+    {
+      "name": "Conflicting findings, limitations, citations and search queries",
+      "status": "pass"
+    },
+    {
+      "name": "Source highlighting, PDF metadata path, Escape and focus return",
+      "status": "pass"
+    },
+    {
+      "name": "Full uploaded document can be opened from evidence",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive results 375",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive results 768",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive results 1280",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive results 1920",
+      "status": "pass"
+    },
+    {
+      "name": "Responsive results 320",
+      "status": "pass"
+    },
+    {
+      "name": "Document view, filename filter and empty-filter state",
+      "status": "pass"
+    },
+    {
+      "name": "Unsupported upload rejected without HTTP upload",
+      "status": "pass"
+    },
+    {
+      "name": "Multiple uploads preserve single-file backend contract",
+      "status": "pass"
+    },
+    {
+      "name": "Replacement and version refresh",
+      "status": "pass"
+    },
+    {
+      "name": "Delete confirmation cancel, confirm and list refresh",
+      "status": "pass"
+    },
+    {
+      "name": "Untrusted filenames render as text, including Georgian and long names",
+      "status": "pass"
+    },
+    {
+      "name": "Provider error preserves previous result and question",
+      "status": "pass"
+    },
+    {
+      "name": "Insufficient result and empty findings presentation",
+      "status": "pass"
+    },
+    {
+      "name": "Provider 502 preserves previous evidence and enables retry",
+      "status": "pass"
+    },
+    {
+      "name": "PDF page reference appears in source reader",
+      "status": "pass"
+    },
+    {
+      "name": "Empty document collection presentation",
+      "status": "pass"
+    },
+    {
+      "name": "One-item and many-item document libraries",
+      "status": "pass"
+    },
+    {
+      "name": "Computed component consistency and focus styling",
+      "status": "pass"
+    },
+    {
+      "name": "Offline recovery control and error announcement",
+      "status": "pass"
+    }
+  ],
+  "measurements": [
+    {
+      "viewport": 375,
+      "scroll": 375,
+      "body": 375,
+      "state": "initial"
+    },
+    {
+      "viewport": 768,
+      "scroll": 768,
+      "body": 768,
+      "state": "initial"
+    },
+    {
+      "viewport": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "state": "initial"
+    },
+    {
+      "viewport": 1920,
+      "scroll": 1920,
+      "body": 1920,
+      "state": "initial"
+    },
+    {
+      "viewport": 320,
+      "scroll": 320,
+      "body": 320,
+      "state": "initial"
+    },
+    {
+      "viewport": 640,
+      "scroll": 640,
+      "body": 640,
+      "state": "initial"
+    }
+  ],
+  "pageErrors": []
+}

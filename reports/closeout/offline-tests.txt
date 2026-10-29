@@ -1,0 +1,50 @@
+test_demo_gate_and_cross_origin_write_rejection (test_closeout.ApiIntegrationTests.test_demo_gate_and_cross_origin_write_rejection) ... ok
+test_production_without_demo_password_fails_closed (test_closeout.ApiIntegrationTests.test_production_without_demo_password_fails_closed) ... ok
+test_upload_replace_delete_remove_stale_keyword_and_vector_payloads (test_closeout.ApiIntegrationTests.test_upload_replace_delete_remove_stale_keyword_and_vector_payloads) ... ok
+test_validation_statuses_and_duplicate_upload (test_closeout.ApiIntegrationTests.test_validation_statuses_and_duplicate_upload) ... ok
+test_conflicting_replacement_rolls_back (test_closeout.DocumentStorageTests.test_conflicting_replacement_rolls_back) ... ok
+test_deletion_removes_the_record (test_closeout.DocumentStorageTests.test_deletion_removes_the_record) ... ok
+test_identical_bytes_are_deduplicated_across_names (test_closeout.DocumentStorageTests.test_identical_bytes_are_deduplicated_across_names) ... ok
+test_replacement_preserves_id_and_creation_time_after_reopen (test_closeout.DocumentStorageTests.test_replacement_preserves_id_and_creation_time_after_reopen) ... ok
+test_excerpts_are_exact_substrings_with_unicode_and_crlf (test_closeout.EvidencePipelineTests.test_excerpts_are_exact_substrings_with_unicode_and_crlf) ... ok
+test_invented_evidence_id_is_rejected (test_closeout.EvidencePipelineTests.test_invented_evidence_id_is_rejected) ... ok
+test_materialization_copies_the_selected_original_text (test_closeout.EvidencePipelineTests.test_materialization_copies_the_selected_original_text) ... ok
+test_pipeline_uses_a_fresh_synthesis_prompt_and_native_tool_plan (test_closeout.EvidencePipelineTests.test_pipeline_uses_a_fresh_synthesis_prompt_and_native_tool_plan) ... ok
+test_unknown_native_tool_is_not_executed (test_closeout.EvidencePipelineTests.test_unknown_native_tool_is_not_executed) ... ok
+test_filename_path_components_are_removed (test_closeout.FileExtractionTests.test_filename_path_components_are_removed) ... ok
+test_text_pdf_extracts_two_pages_with_correct_offsets (test_closeout.FileExtractionTests.test_text_pdf_extracts_two_pages_with_correct_offsets) ... ok
+test_unsupported_empty_binary_and_invalid_utf8_are_rejected (test_closeout.FileExtractionTests.test_unsupported_empty_binary_and_invalid_utf8_are_rejected) ... ok
+test_utf8_text_and_markdown (test_closeout.FileExtractionTests.test_utf8_text_and_markdown) ... ok
+test_cloud_store_requires_connection_environment (test_cloud.CloudBoundaryTests.test_cloud_store_requires_connection_environment) ... ok
+test_free_demo_capacity_rolls_back_insert (test_cloud.CloudBoundaryTests.test_free_demo_capacity_rolls_back_insert) ... ok
+test_postgres_adapter_binds_values_and_translates_schema (test_cloud.CloudBoundaryTests.test_postgres_adapter_binds_values_and_translates_schema) ... ok
+test_public_database_requires_tls (test_cloud.CloudBoundaryTests.test_public_database_requires_tls) ... ok
+test_reentrant_lock_opens_one_shared_transaction (test_cloud.CloudBoundaryTests.test_reentrant_lock_opens_one_shared_transaction) ... ok
+test_failed_indexing_is_not_silently_searchable (test_cloud.CloudUploadTests.test_failed_indexing_is_not_silently_searchable) ... ok
+test_persistent_qdrant_and_documents_survive_client_reopen (test_cloud.CloudUploadTests.test_persistent_qdrant_and_documents_survive_client_reopen) ... ok
+test_search_dependency_error_is_explicit (test_cloud.CloudUploadTests.test_search_dependency_error_is_explicit) ... ok
+test_update_and_delete_remove_old_payloads_in_every_mode (test_cloud.CloudUploadTests.test_update_and_delete_remove_old_payloads_in_every_mode) ... ok
+test_empty_corpus_and_unknown_query_are_empty (test_cloud.SparseBM25Tests.test_empty_corpus_and_unknown_query_are_empty) ... ok
+test_qdrant_sparse_matches_existing_bm25_scores (test_cloud.SparseBM25Tests.test_qdrant_sparse_matches_existing_bm25_scores) ... ok
+test_query_repeats_are_not_counted_twice (test_cloud.SparseBM25Tests.test_query_repeats_are_not_counted_twice) ... ok
+test_vocabulary_ids_are_deterministic (test_cloud.SparseBM25Tests.test_vocabulary_ids_are_deterministic) ... ok
+test_access_setup_preserves_provider_key_and_removes_duplicate_assignment (test_extended_checks.ExtendedAssertionTests.test_access_setup_preserves_provider_key_and_removes_duplicate_assignment) ... ok
+test_formatted_number_and_real_quote_pass (test_extended_checks.ExtendedAssertionTests.test_formatted_number_and_real_quote_pass) ... ok
+test_invented_reference_fails_even_with_matching_facts (test_extended_checks.ExtendedAssertionTests.test_invented_reference_fails_even_with_matching_facts) ... ok
+test_accepts_existing_source_and_exact_quote (test_investigator.InvestigationTests.test_accepts_existing_source_and_exact_quote) ... ok
+test_accepts_explained_abstention (test_investigator.InvestigationTests.test_accepts_explained_abstention) ... ok
+test_rejects_answer_without_findings (test_investigator.InvestigationTests.test_rejects_answer_without_findings) ... ok
+test_rejects_invented_quote (test_investigator.InvestigationTests.test_rejects_invented_quote) ... ok
+test_rejects_unexplained_abstention (test_investigator.InvestigationTests.test_rejects_unexplained_abstention) ... ok
+test_rejects_unknown_source (test_investigator.InvestigationTests.test_rejects_unknown_source) ... ok
+test_rejects_whitespace_quote (test_investigator.InvestigationTests.test_rejects_whitespace_quote) ... ok
+test_empty_query_returns_no_results (test_search.SearchTests.test_empty_query_returns_no_results) ... ok
+test_more_matching_words_rank_first (test_search.SearchTests.test_more_matching_words_rank_first) ... ok
+test_repeated_words_do_not_increase_score (test_search.SearchTests.test_repeated_words_do_not_increase_score) ... ok
+test_tokenize_ignores_case_and_punctuation (test_search.SearchTests.test_tokenize_ignores_case_and_punctuation) ... ok
+test_unknown_word_returns_no_results (test_search.SearchTests.test_unknown_word_returns_no_results) ... ok
+
+----------------------------------------------------------------------
+Ran 45 tests in 0.748s
+
+OK

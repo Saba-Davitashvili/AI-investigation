@@ -1,0 +1,38 @@
+name: trace
+services:
+  app:
+    build: .
+    init: true
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      APP_ENV: production
+      BOOTSTRAP_ON_START: ${BOOTSTRAP_ON_START:-false}
+      FORWARDED_ALLOW_IPS: '*'
+    expose:
+      - '8000'
+    volumes:
+      - trace_data:/app/data
+      - trace_indexes:/app/indexes
+      - trace_models:/app/model-cache
+    stop_grace_period: 60s
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      DEMO_HOST: ${DEMO_HOST:?Set DEMO_HOST to the public DNS hostname}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - trace_caddy_data:/data
+      - trace_caddy_config:/config
+    depends_on:
+      - app
+volumes:
+  trace_data:
+  trace_indexes:
+  trace_models:
+  trace_caddy_data:
+  trace_caddy_config:

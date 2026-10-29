@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-29",
+  "python": "3.12.14",
+  "offline_test_command": "python -m unittest -v",
+  "test_process_exit_code": 0,
+  "compilation": "pass",
+  "duplicate_top_level_definitions": "none",
+  "full_corpus_available_here": false,
+  "live_provider_called": false,
+  "docker_available_here": false,
+  "scope": "Real SQLite and Qdrant, including dense/sparse BM25 score parity and reopen tests; PostgreSQL metadata simulated; provider mocked.",
+  "tests_run": 45,
+  "tests_passed": 45,
+  "api_test_embedding_adapter": "fake; deterministic 4-dimensional vectors",
+  "historical_answer_report_unchanged": true,
+  "extended_live_suite": "provided, not run",
+  "public_deployment": "not provisioned",
+  "cloud_postgresql_live": "not run; no connection available",
+  "cloud_onnx_smoke": {
+    "backend": "pinned FP32 MiniLM ONNX",
+    "vectors": [
+      3,
+      384
+    ],
+    "identical_cosine": 1.0,
+    "unrelated_cosine": -0.014212165959179401,
+    "peak_rss_mib": 245.6,
+    "scope": "embedding-only process; not hosted API peak memory"
+  },
+  "cloud_full_corpus_reindexed": false
+}

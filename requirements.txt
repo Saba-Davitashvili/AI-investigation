@@ -1,0 +1,15 @@
+# Direct runtime + ingestion dependencies. The original Windows freeze is
+# preserved in requirements-lock.txt as provenance, not a Linux lockfile.
+fastapi==0.162.0
+starlette==1.10.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+python-dotenv==1.2.4
+pydantic==2.14.1
+groq==1.7.0
+qdrant-client==1.20.0
+sentence-transformers==6.2.0
+torch==2.14.1
+pypdf==6.21.4
+datasets==5.1.0
+httpx==0.28.1

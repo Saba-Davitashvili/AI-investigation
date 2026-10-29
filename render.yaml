@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: trace-investigation-engine
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.render
+    healthCheckPath: /readyz
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: STORAGE_BACKEND
+        value: cloud
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: QDRANT_CORPUS_COLLECTION
+        value: trace_corpus_cloud_v1
+      - key: DEMO_USERNAME
+        value: reviewer
+      - key: DEMO_PASSWORD
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false

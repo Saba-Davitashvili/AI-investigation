@@ -1,0 +1,20 @@
+FROM python:3.13-slim
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 TOKENIZERS_PARALLELISM=false \
+    OMP_NUM_THREADS=1 HF_HOME=/tmp/hf-cache ONNX_MODEL_DIRECTORY=/app/onnx-model
+WORKDIR /app
+COPY requirements-cloud.txt .
+RUN pip install --no-cache-dir -r requirements-cloud.txt
+# Download public pinned assets at build time; no credentials are copied in.
+RUN python - <<'PY'
+from huggingface_hub import hf_hub_download
+from pathlib import Path
+from shutil import copyfile
+root=Path('/app/onnx-model'); root.mkdir()
+revision='1110a243fdf4706b3f48f1d95db1a4f5529b4d41'
+for source,target in [('tokenizer.json','tokenizer.json'),('onnx/model.onnx','model.onnx')]:
+    copyfile(hf_hub_download('sentence-transformers/all-MiniLM-L6-v2',source,revision=revision),root/target)
+PY
+COPY . .
+RUN useradd --create-home --uid 10001 trace && chown -R trace:trace /app
+USER trace
+CMD ["python", "serve.py"]

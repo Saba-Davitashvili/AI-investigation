@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-29",
+  "scope": "Imports real API stack and ONNX; encodes 80 long samples at length 256. No hosted HTTP traffic, corpus, cloud DB or LLM.",
+  "peak_rss_mib": 293.6,
+  "last_batch_shape": [
+    4,
+    384
+  ],
+  "torch_imported": false,
+  "transformers_imported": false,
+  "hosted_memory_verified": false
+}
