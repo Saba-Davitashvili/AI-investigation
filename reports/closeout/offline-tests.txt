@@ -20,6 +20,7 @@ test_free_demo_capacity_rolls_back_insert (test_cloud.CloudBoundaryTests.test_fr
 test_postgres_adapter_binds_values_and_translates_schema (test_cloud.CloudBoundaryTests.test_postgres_adapter_binds_values_and_translates_schema) ... ok
 test_public_database_requires_tls (test_cloud.CloudBoundaryTests.test_public_database_requires_tls) ... ok
 test_reentrant_lock_opens_one_shared_transaction (test_cloud.CloudBoundaryTests.test_reentrant_lock_opens_one_shared_transaction) ... ok
+test_cloud_chunk_builder_preserves_local_chunks_and_source_offsets (test_cloud.CloudRunnerPreparationTests.test_cloud_chunk_builder_preserves_local_chunks_and_source_offsets) ... ok
 test_failed_indexing_is_not_silently_searchable (test_cloud.CloudUploadTests.test_failed_indexing_is_not_silently_searchable) ... ok
 test_persistent_qdrant_and_documents_survive_client_reopen (test_cloud.CloudUploadTests.test_persistent_qdrant_and_documents_survive_client_reopen) ... ok
 test_search_dependency_error_is_explicit (test_cloud.CloudUploadTests.test_search_dependency_error_is_explicit) ... ok
@@ -45,6 +46,7 @@ test_tokenize_ignores_case_and_punctuation (test_search.SearchTests.test_tokeniz
 test_unknown_word_returns_no_results (test_search.SearchTests.test_unknown_word_returns_no_results) ... ok
 
 ----------------------------------------------------------------------
-Ran 45 tests in 0.748s
+Ran 46 tests in 0.923s
 
 OK
+Prepared 1 cloud chunks from 1 source documents.

@@ -194,5 +194,32 @@ class CloudBoundaryTests(unittest.TestCase):
                 store.enforce_storage_budget(conn)
 
 
+class CloudRunnerPreparationTests(unittest.TestCase):
+    def test_cloud_chunk_builder_preserves_local_chunks_and_source_offsets(self):
+        import prepare_cloud_chunks as builder
+        import hashlib
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary); directory=root/'data/corpus'; directory.mkdir(parents=True)
+            document={'id':'fixture-1','title':'Synthetic','text':'Budget is 1200 GEL. Project PERSIST7391.',
+                      'source':'synthetic','config':'fixture','split':'test'}
+            (directory/'documents.jsonl').write_text(json.dumps(document)+'\n')
+            (directory/'manifest.json').write_text(json.dumps({'unique_passages':1,'corpus_sha256':'fixture'}))
+            legacy=directory/'chunks_fixed_token.jsonl'; legacy.write_bytes(b'local-index-must-stay-unchanged')
+            with patch.object(builder,'BASE_DIRECTORY',root), patch.object(builder,'verify_corpus') as verified, patch.object(builder,'OnnxMiniLM',return_value=FakeModel()):
+                builder.main()
+                verified.assert_called_once()
+            self.assertEqual(legacy.read_bytes(),b'local-index-must-stay-unchanged')
+            chunks=[json.loads(line) for line in (directory/'chunks_cloud.jsonl').read_text().splitlines()]
+            self.assertTrue(chunks)
+            for chunk in chunks:
+                self.assertEqual(chunk['text'],document['text'][chunk['char_start']:chunk['char_end']])
+            digest=hashlib.sha256()
+            for chunk in chunks:
+                digest.update(json.dumps(chunk,ensure_ascii=False,sort_keys=True).encode())
+            manifest=json.loads((directory/'cloud_index_manifest.json').read_text())
+            self.assertEqual(manifest['input_fingerprint'],digest.hexdigest())
+            self.assertEqual(manifest['stored_chunks'],len(chunks))
+
+
 if __name__ == '__main__':
     unittest.main()

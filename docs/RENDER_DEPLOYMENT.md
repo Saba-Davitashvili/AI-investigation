@@ -61,7 +61,30 @@ characters, and 20 MiB total original bytes. Writes above those limits roll
 back with HTTP 413. One file is still limited to 10 MiB. These limits protect
 shared free storage and memory; the 50,000-document corpus is separate.
 
-## Setup
+## Entirely cloud-hosted setup (no PC installation or home IP)
+
+1. Provision a Neon Free database and a Qdrant Free cluster.
+2. In this GitHub repository, open Settings → Secrets and variables → Actions.
+   Add DATABASE_URL, QDRANT_URL and QDRANT_API_KEY as repository secrets.
+   Never paste their values into issues, commits or chat.
+3. Open Actions → Prepare cloud corpus → Run workflow. This runs the pinned
+   dataset preparation, validates/chunks 50,000+ source documents, embeds with
+   the same pinned ONNX backend used by the app, and seeds Qdrant/Neon from a
+   GitHub-hosted Linux runner. It does not use your PC or expose a home IP.
+   The workflow is manual-only, serialized, bounded to four hours, and fails
+   explicitly if the secrets are absent. First-time preparation can take a
+   substantial time; this cloud workflow has not yet been executed.
+4. After successful seeding, create the Render Free Blueprint from this repo.
+   Supply the same database/Qdrant secrets plus GROQ_API_KEY privately in Render.
+5. Complete the hosted acceptance and real-model evaluation below. A seeded
+   database or a successful build alone is not a working public deployment.
+
+The checked-in workflow provides public reproducibility manifests and question
+inputs as a seven-day artifact. It does not save private uploads or secrets.
+GitHub-hosted Actions availability and runner quotas must also be checked for
+this account. Secrets remain server-side and are never passed to the frontend.
+
+## Optional operator-PC setup
 
 1. Create a Neon Free project/database. Obtain its TLS connection string
    (`sslmode=require` or stronger). Keep it in the local `.env` and later in

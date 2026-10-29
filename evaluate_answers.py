@@ -93,14 +93,18 @@ def main():
     health = request_json("/health")
     uploads = request_json("/documents")
 
-    manifest_bytes = (
-        directory / "index_manifest.json"
-    ).read_bytes()
+    manifest_path = directory / "index_manifest.json"
+    if health.get("storage_backend") == "cloud" and (directory / "cloud_index_manifest.json").exists():
+        manifest_path = directory / "cloud_index_manifest.json"
+    manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
 
     if health.get("storage_backend") == "cloud":
         digest = hashlib.sha256()
-        with (directory / "chunks_fixed_token.jsonl").open(encoding="utf-8") as stream:
+        chunks_path = directory / "chunks_cloud.jsonl"
+        if not chunks_path.exists():
+            chunks_path = directory / "chunks_fixed_token.jsonl"
+        with chunks_path.open(encoding="utf-8") as stream:
             for line in stream:
                 if line.strip():
                     digest.update(json.dumps(json.loads(line), ensure_ascii=False, sort_keys=True).encode())

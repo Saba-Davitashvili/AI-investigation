@@ -46,3 +46,5 @@ The candidate remains responsible for understanding and defending the code. Comp
 ## Cloud deployment continuation
 
 AI also implemented the optional ONNX/Qdrant/PostgreSQL serving path, Render configuration, cloud seed/resume script, cloud regression tests, and two-phase hosted acceptance script. Local test results do not establish a deployed service. These changes require independent understanding and live validation before submission.
+
+AI added an optional manual GitHub Actions workflow to recreate and seed the corpus on a hosted runner, removing the need for PC-side setup. The workflow is provided but has not been executed against cloud accounts.

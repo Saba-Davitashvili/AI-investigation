@@ -90,3 +90,5 @@ These improvements are proposed work, not implemented results.
 ## Cloud continuation checks
 
 The additional tests verify sparse BM25 dot-product scores against the existing BM25 implementation using real local Qdrant, vocabulary determinism, stale upload removal, local index reopen, explicit dependency failures, parameter binding, TLS configuration checks and the shared lock boundary. PostgreSQL metadata is simulated in these tests; live Neon SQL and hosted persistence remain unverified. A separate process imported the API and ran the actual pinned ONNX model over 80 length-256 samples: peak RSS 293.6 MiB, with no Torch/Transformers imports. This is a synthetic local memory smoke test, not a hosted memory or quality benchmark. See reports/closeout/cloud-memory-smoke.json.
+
+The hosted-runner continuation adds one regression for cloud chunk preparation, bringing the current offline suite to 46 passing tests. The actual cloud seeding job remains unrun.

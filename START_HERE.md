@@ -48,3 +48,5 @@ Current candidate source changes do not retroactively re-evaluate the original b
 ## Render alternative
 
 See docs/RENDER_DEPLOYMENT.md for the additional small cloud runtime. It requires provisioned free Render, Neon and Qdrant accounts, corpus seeding and live acceptance; these have not been completed.
+
+For setup without installing anything on your PC, use the “Entirely cloud-hosted setup” section in docs/RENDER_DEPLOYMENT.md and the manual Prepare cloud corpus Actions workflow. Account provisioning and private secret configuration remain required.

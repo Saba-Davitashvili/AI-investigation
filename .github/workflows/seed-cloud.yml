@@ -1,0 +1,55 @@
+name: Prepare cloud corpus
+"on":
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: seed-cloud-corpus
+  cancel-in-progress: false
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      QDRANT_URL: ${{ secrets.QDRANT_URL }}
+      QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+      QDRANT_CORPUS_COLLECTION: trace_corpus_cloud_v1
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required repository secrets
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os
+          names=['DATABASE_URL','QDRANT_URL','QDRANT_API_KEY']
+          missing=[name for name in names if not os.getenv(name)]
+          if missing:
+              raise SystemExit('Configure repository Actions secrets: '+', '.join(missing))
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements-cloud.txt datasets==5.1.0
+      - name: Cache public pinned dataset and model downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: trace-public-hotpot-14f0ace3-minilm-1110a243-v1
+      - name: Recreate the reproducible 50000-document corpus
+        run: python prepare_corpus.py
+      - name: Validate and chunk with the cloud tokenizer
+        run: python prepare_cloud_chunks.py
+      - name: Seed and verify persistent cloud vectors
+        run: python seed_cloud.py --chunks data/corpus/chunks_cloud.jsonl
+      - name: Save public reproducibility and evaluation inputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloud-corpus-manifests
+          path: |
+            data/corpus/manifest.json
+            data/corpus/cloud_index_manifest.json
+            data/corpus/evaluation_questions.json
+          retention-days: 7
