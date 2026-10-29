@@ -1,6 +1,6 @@
 # Start here
 
-The code, redesigned frontend, reports and deployment candidate are packaged. Actual publication is still pending.
+The code, redesigned frontend, reports and deployment candidates are published at https://github.com/Saba-Davitashvili/AI-investigation. GitHub Actions passed the 45-test offline suite on Python 3.13. Actual hosting and hosted acceptance are still pending.
 
 ## 1. Install into the existing project
 

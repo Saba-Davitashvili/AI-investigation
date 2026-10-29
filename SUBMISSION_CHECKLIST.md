@@ -1,10 +1,10 @@
 # Submission status — fill with actual evidence
 
-The source package is prepared. Public deployment/publication are not completed automatically by creating this file.
+The source snapshot is published at https://github.com/Saba-Davitashvili/AI-investigation. Public deployment and hosted acceptance remain pending. The source ZIP did not include the original Windows .git directory, so this new repository starts with the published snapshot; it does not recreate earlier local commits.
 
 | Deliverable / acceptance | Status | Final evidence to add |
 |---|---|---|
-| Source repository and history | Pending publication | Actual GitHub URL and commit SHA; keep the original local .git history |
+| Source repository and history | Snapshot published | https://github.com/Saba-Davitashvili/AI-investigation; original Windows history not included in source ZIP |
 | Public hosted demo | Pending | Actual public HTTPS URL and reviewer access instructions |
 | Hosted data survives restart | Not run | Document ID/version/search result before and after a real host restart |
 | README and architecture | Written | README.md |
@@ -65,7 +65,7 @@ Create an empty GitHub repository under your own account if needed. If origin is
 
 ## Final handoff text
 
-- GitHub: **not yet published — replace with real URL**
+- GitHub: https://github.com/Saba-Davitashvili/AI-investigation
 - Live demo: **not yet deployed — replace with real URL**
 - Reviewer access: **share the demo credentials privately; never the provider key**
 - Recorded answer result: 23/40 judge-correct (57.5%); 26/30 findings supported; 51/51 quotes valid.

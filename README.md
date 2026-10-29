@@ -2,7 +2,7 @@
 
 Trace investigates questions across a document corpus and uploaded files. It combines lexical and vector retrieval, asks an LLM to plan searches, and returns findings linked to original evidence. It can report missing evidence or unresolved contradictions.
 
-**Status:** working local prototype with a deployment candidate. The public demo URL, hosted restart verification and GitHub publication are still pending. Do not describe this ZIP alone as a completed deployment.
+**Status:** source published at [Saba-Davitashvili/AI-investigation](https://github.com/Saba-Davitashvili/AI-investigation). GitHub Actions passed the offline suite on Python 3.13. The public demo URL and hosted restart verification remain pending. This repository is a working local prototype with deployment candidates; it is not proof of completed hosting.
 
 | Submission item | Location / status |
 |---|---|

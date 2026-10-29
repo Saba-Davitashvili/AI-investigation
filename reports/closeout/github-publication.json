@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/Saba-Davitashvili/AI-investigation",
+  "source_commit": "d2de79acd5fad72c19f35ad16146bd1abde1f503",
+  "github_actions_run": "https://github.com/Saba-Davitashvili/AI-investigation/actions/runs/40877843271",
+  "ci_conclusion": "success",
+  "ci_python": "3.13",
+  "offline_tests": 45,
+  "published_source_files_before_publication_report": 72,
+  "historical_report_line_endings": "preserved in publication follow-up",
+  "public_deployment": "not provisioned",
+  "original_windows_git_history": "not present in supplied archive; not reconstructed"
+}
